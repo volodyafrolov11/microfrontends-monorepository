@@ -1,0 +1,17 @@
+{
+  "name": "webpack-monorepo",
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
+  "scripts": {
+    "start:dev": "concurrently \"npm run dev:admin\" \"npm run dev:shop\" \"npm run dev:host\"",
+    "dev:host": "npm run start -w host",
+    "dev:admin": "npm run start -w admin",
+    "dev:shop": "npm run start -w shop"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
